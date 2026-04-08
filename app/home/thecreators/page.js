@@ -3,34 +3,18 @@ import Image from "next/image";
 const CREATORS = [
   {
     id: 1,
-    badge: "ART DIRECTOR",
-    name: "Vikram Mehta",
-    role: "MASTER HAIR SCULPTOR",
+    badge: "ARTIST",
+    name: "NISHA",
+    role: "MASTER BEAUTICIAN",
     specialty: "15+ Years",
     stars: 5,
     image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=400&q=80",
   },
-  {
-    id: 2,
-    badge: "LEAD ARTIST",
-    name: "Ananya V.",
-    role: "MAKEUP VISIONARY",
-    specialty: "Celebrity Stylist",
-    stars: 5,
-    image: "https://images.unsplash.com/photo-1529111290557-82f6d5c6cf85?w=400&q=80",
-  },
-  {
-    id: 3,
-    badge: "EXPERT",
-    name: "Riya Kapoor",
-    role: "AESTHETICIAN",
-    specialty: "Skin Specialist",
-    stars: 5,
-    image: "https://images.unsplash.com/photo-1524502397800-2eeaad7c3fe5?w=400&q=80",
-  },
 ];
 
 export default function TheCreators() {
+  const isSingle = CREATORS.length === 1;
+
   return (
     <section
       className="w-full py-20 px-4 sm:px-10"
@@ -40,7 +24,6 @@ export default function TheCreators() {
 
         {/* ── Header ── */}
         <div className="text-center mb-14">
-          {/* Label with side lines */}
           <div className="flex items-center justify-center gap-3 mb-4">
             <div style={{ width: "36px", height: "1px", backgroundColor: "#c8974a" }} />
             <span style={{ color: "#c8974a", fontSize: "13px" }}>✦</span>
@@ -54,7 +37,6 @@ export default function TheCreators() {
             <div style={{ width: "36px", height: "1px", backgroundColor: "#c8974a" }} />
           </div>
 
-          {/* Main heading */}
           <h2
             style={{
               fontFamily: "'Playfair Display', serif",
@@ -69,7 +51,6 @@ export default function TheCreators() {
             </span>
           </h2>
 
-          {/* Italic subline */}
           <p
             className="mt-4 text-[13px] italic"
             style={{
@@ -82,9 +63,20 @@ export default function TheCreators() {
         </div>
 
         {/* ── Cards ── */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div
+          className={
+            isSingle
+              ? "flex justify-center"
+              : "grid sm:grid-cols-2 lg:grid-cols-3 gap-8"
+          }
+        >
           {CREATORS.map((c) => (
-            <CreatorCard key={c.id} c={c} />
+            <div
+              key={c.id}
+              style={isSingle ? { width: "100%", maxWidth: "320px" } : undefined}
+            >
+              <CreatorCard c={c} />
+            </div>
           ))}
         </div>
 
@@ -165,7 +157,7 @@ function CreatorCard({ c }) {
           {c.role}
         </p>
 
-        {/* Specialty — italic muted */}
+        {/* Specialty */}
         <p
           className="text-[11px] italic mb-4"
           style={{
@@ -183,12 +175,19 @@ function CreatorCard({ c }) {
         />
 
         {/* View work link */}
-        <button
-          className="flex items-center justify-center gap-2 mx-auto text-[10px] font-bold tracking-[0.22em] uppercase transition-all duration-200 hover:gap-3"
-          style={{ color: "#2b1a1a" }}
+        
+        <a
+          href="https://www.instagram.com/nk_beautysalon_academy"
+          target="_blank"
+          rel="noopener noreferrer"
         >
-          View Work <span>→</span>
-        </button>
+          <button
+            className="flex items-center justify-center gap-2 mx-auto text-[10px] font-bold tracking-[0.22em] uppercase transition-all duration-200 hover:gap-3"
+            style={{ color: "#2b1a1a" }}
+          >
+            PORTFOLIO <span>→</span>
+          </button>
+        </a>
       </div>
     </div>
   );

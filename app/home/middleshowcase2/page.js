@@ -1,24 +1,25 @@
 import Image from "next/image";
 import Link from "next/link";
+
 export default function MiddleShowcase2() {
   return (
     <section
       style={{ backgroundColor: "#faf7f4" }}
       className="w-full py-16 px-6 md:px-16 lg:px-24"
     >
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-16">
+      <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-16 lg:gap-16">
 
         {/* ── LEFT — Image card with floating stat ── */}
-        <div className="relative flex-shrink-0 w-full md:w-[420px]">
+        <div className="relative flex-shrink-0 w-full max-w-[460px] mx-auto lg:mx-0 lg:w-[420px]">
 
-          {/* Watermark — sits behind the image */}
+          {/* Watermark */}
           <div
             aria-hidden="true"
-            className="pointer-events-none select-none absolute font-serif font-black leading-none"
+            className="pointer-events-none select-none absolute font-serif font-black leading-none hidden md:block"
             style={{
-              top: "-100px",
-              left: "-32px",
-              fontSize: "clamp(100px, 20vw, 160px)",
+              top: "-80px",
+              left: "-24px",
+              fontSize: "clamp(80px, 14vw, 160px)",
               color: "transparent",
               WebkitTextStroke: "2px rgba(180,150,130,0.18)",
               letterSpacing: "-0.05em",
@@ -29,15 +30,14 @@ export default function MiddleShowcase2() {
             NK
           </div>
 
-          {/* Main image — tall pill shape */}
+          {/* Main image */}
           <div
             className="overflow-hidden w-full"
             style={{
               borderRadius: "160px 160px 24px 24px",
-              height: "520px",
+              height: "clamp(320px, 50vw, 520px)",
               position: "relative",
               zIndex: 1,
-              boxShadow: "0 8px 40px rgba(0,0,0,0.10)",
             }}
           >
             <Image
@@ -49,47 +49,39 @@ export default function MiddleShowcase2() {
             />
           </div>
 
-          {/* Floating stat card — bottom right, overlapping image */}
+          {/* Floating stat card */}
           <div
-            className="absolute bg-white shadow-xl"
+            className="absolute bg-white"
             style={{
               borderRadius: "20px",
               bottom: "-10px",
-              right: "-10px",
-              minWidth: "190px",
-              padding: "28px 32px",
+              right: "0px",
+              minWidth: "150px",
+              padding: "18px 22px",
               zIndex: 2,
+              boxShadow: "0 8px 32px rgba(0,0,0,0.10)",
             }}
           >
-            {/* 10+ with gold plus */}
             <p
               className="font-bold leading-none"
               style={{
                 fontFamily: "'Playfair Display', serif",
-                fontSize: "52px",
+                fontSize: "48px",
                 color: "#2b1a1a",
               }}
             >
               10
-              <span style={{ fontSize: "32px", color: "#c8974a" }}>+</span>
+              <span style={{ fontSize: "28px", color: "#c8974a" }}>+</span>
             </p>
-
-            {/* Gold divider */}
             <div
               className="my-3"
-              style={{
-                height: "2px",
-                width: "44px",
-                backgroundColor: "#c8974a",
-              }}
+              style={{ height: "2px", width: "40px", backgroundColor: "#c8974a" }}
             />
-
-            {/* Label */}
             <p
               className="font-semibold uppercase"
               style={{
                 color: "#9e8e7e",
-                fontSize: "10px",
+                fontSize: "9px",
                 letterSpacing: "0.20em",
                 lineHeight: "1.7",
               }}
@@ -102,7 +94,8 @@ export default function MiddleShowcase2() {
         </div>
 
         {/* ── RIGHT — Text content ── */}
-        <div className="flex-1">
+        {/* pt-6 on mobile/tablet so text clears the floating stat card overlap */}
+        <div className="flex-1 w-full pt-6 lg:pt-0">
 
           {/* Label */}
           <div className="flex items-center gap-3 mb-4">
@@ -131,10 +124,10 @@ export default function MiddleShowcase2() {
             </span>
           </h2>
 
-          {/* Body paragraph — drop-cap A */}
+          {/* Body paragraph */}
           <p
             className="text-sm leading-relaxed mb-8"
-            style={{ color: "#6b5c52", maxWidth: "440px" }}
+            style={{ color: "#6b5c52", maxWidth: "480px" }}
           >
             <span
               className="float-left text-4xl font-bold mr-1 mt-1 leading-none"
@@ -149,8 +142,7 @@ export default function MiddleShowcase2() {
           </p>
 
           {/* Two mini feature columns */}
-          <div className="flex gap-10 mb-10">
-            {/* Bespoke Mission */}
+          <div className="flex flex-col sm:flex-row gap-6 sm:gap-10 mb-10">
             <div className="flex gap-3">
               <div
                 style={{
@@ -168,13 +160,11 @@ export default function MiddleShowcase2() {
                   ✦ Bespoke Mission
                 </p>
                 <p className="text-xs leading-relaxed" style={{ color: "#6b5c52" }}>
-                  Tailoring luxury experiences that resonate with your unique
-                  frequency.
+                  Tailoring luxury experiences that resonate with your unique frequency.
                 </p>
               </div>
             </div>
 
-            {/* Purest Essence */}
             <div className="flex gap-3">
               <div
                 style={{
