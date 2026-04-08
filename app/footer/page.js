@@ -1,6 +1,6 @@
 "use client";
 
-import { FaInstagram, FaFacebookF, FaYoutube } from "react-icons/fa";
+import { FaInstagram, FaWhatsapp  } from "react-icons/fa";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -107,30 +107,18 @@ export default function Footer() {
                 <FaInstagram className="text-sm" />
               </a>
 
-              {/* Facebook — no handle known, leave src empty */}
+              {/* WhatsApp */}
               <a
-                href=""
-                aria-label="Facebook"
+                href="https://wa.me/918178999443?text=Hi%20NK%20Beauty%2C%20I%20want%20to%20book%20an%20appointment"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="WhatsApp"
                 className="w-9 h-9 flex items-center justify-center rounded-full
                   border border-gray-700 text-gray-300
-                  hover:border-[#d4af37] hover:text-[#d4af37]
-                  hover:bg-[#d4af37]/10 transition pointer-events-none opacity-40"
-                tabIndex={-1}
+                  hover:border-[#25D366] hover:text-[#25D366]
+                  hover:bg-[#25D366]/10 transition"
               >
-                <FaFacebookF className="text-sm" />
-              </a>
-
-              {/* YouTube — no handle known, leave src empty */}
-              <a
-                href=""
-                aria-label="YouTube"
-                className="w-9 h-9 flex items-center justify-center rounded-full
-                  border border-gray-700 text-gray-300
-                  hover:border-[#d4af37] hover:text-[#d4af37]
-                  hover:bg-[#d4af37]/10 transition pointer-events-none opacity-40"
-                tabIndex={-1}
-              >
-                <FaYoutube className="text-sm" />
+                <FaWhatsapp className="text-sm" />
               </a>
             </div>
           </div>
@@ -197,13 +185,17 @@ export default function Footer() {
                 CONTACT
               </h3>
 
-              <p className="text-sm text-gray-400 leading-relaxed">
-                Shop No. 1, Ground Floor<br />
-                Kh No. 409/2, Laxmi Vihar<br />
-                Burari, Near Burari Govt. Hospital<br />
-                Monday Market Road<br />
-                Delhi – 110084
-              </p>
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=NK+Beauty+Salon+and+Academy+Shop+No.+1+Ground+Floor+Khasra+No.+409/2+Laxmi+Vihar+Burari+Delhi+110084"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-sm text-gray-400 leading-relaxed hover:text-[#d4af37] transition"
+              >
+                NK Beauty Salon & Academy  
+                Shop No. 1, Ground Floor  
+                Khasra No. 409/2, Laxmi Vihar 
+                Delhi – 110084, India
+              </a>
 
               <a
                 href="tel:+918178999443"

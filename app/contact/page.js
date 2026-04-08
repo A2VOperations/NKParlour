@@ -196,16 +196,77 @@ function JourneySection() {
         </p>
 
         {/* Contact row */}
-        <div className="contact-row" style={{ display: "flex", gap: 32, flexWrap: "wrap", alignItems: "flex-start" }}>
+        <div
+          className="contact-row"
+          style={{ display: "flex", gap: 32, flexWrap: "wrap", alignItems: "flex-start" }}
+        >
           {[
-            { icon: "📞", label: "CALL US", value: "81789 99143", href: "tel:+918178999143" },
-            { icon: "📍", label: "LOCATION", value: "Laxmi Vihar, Burari, Delhi", href: "#" },
+            {
+              icon: "📞",
+              label: "CALL US",
+              value: "81789 99143",
+              href: "tel:+918178999143",
+            },
+            {
+              icon: "📍",
+              label: "LOCATION",
+              value: "Laxmi Vihar, Burari, Delhi",
+              href: "https://www.google.com/maps/search/?api=1&query=NK+Beauty+Salon+and+Academy+Shop+No.+1+Ground+Floor+Khasra+No.+409/2+Laxmi+Vihar+Burari+Delhi+110084",
+            },
           ].map((c, i) => (
-            <a key={i} href={c.href} style={{ display: "flex", alignItems: "center", gap: 12, textDecoration: "none" }}>
-              <div style={{ width: 42, height: 42, borderRadius: "50%", border: "1px solid rgba(232,24,90,0.35)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 15, color: C.pink, background: "rgba(232,24,90,0.08)" }}>{c.icon}</div>
+            <a
+              key={i}
+              href={c.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: 12,
+                textDecoration: "none",
+              }}
+            >
+              <div
+                style={{
+                  width: 42,
+                  height: 42,
+                  borderRadius: "50%",
+                  border: "1px solid rgba(232,24,90,0.35)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontSize: 15,
+                  color: C.pink,
+                  background: "rgba(232,24,90,0.08)",
+                }}
+              >
+                {c.icon}
+              </div>
+
               <div>
-                <div style={{ fontSize: 8, letterSpacing: 2.5, color: C.mid, textTransform: "uppercase", marginBottom: 3, fontFamily: "'Montserrat', sans-serif" }}>{c.label}</div>
-                <div style={{ fontSize: 14, color: C.dark, fontFamily: "'Playfair Display', serif", fontWeight: 500 }}>{c.value}</div>
+                <div
+                  style={{
+                    fontSize: 8,
+                    letterSpacing: 2.5,
+                    color: C.mid,
+                    textTransform: "uppercase",
+                    marginBottom: 3,
+                    fontFamily: "'Montserrat', sans-serif",
+                  }}
+                >
+                  {c.label}
+                </div>
+
+                <div
+                  style={{
+                    fontSize: 14,
+                    color: C.dark,
+                    fontFamily: "'Playfair Display', serif",
+                    fontWeight: 500,
+                  }}
+                >
+                  {c.value}
+                </div>
               </div>
             </a>
           ))}
@@ -366,7 +427,8 @@ function BookingSection({ step, setStep, selectedService, setSelectedService, se
               </div>
             ))}
           </div>
-          <a href="https://maps.google.com/?q=NK+Beauty+Salon+Burari+Delhi" target="_blank" rel="noopener noreferrer"
+          <a  href="https://www.google.com/maps/search/?api=1&query=NK+Beauty+Salon+and+Academy+Shop+No.+1+Ground+Floor+Khasra+No.+409/2+Laxmi+Vihar+Burari+Delhi+110084"
+              target="_blank" rel="noopener noreferrer"
             style={{ display: "inline-flex", alignItems: "center", gap: 10, marginTop: 40, background: "rgba(232,24,90,0.1)", border: "1px solid rgba(232,24,90,0.25)", borderRadius: 40, padding: "12px 20px", textDecoration: "none", color: C.pink, fontFamily: "'Montserrat', sans-serif", fontSize: 11, letterSpacing: 2, textTransform: "uppercase" }}>
             <span>📍</span> View on Maps →
           </a>
@@ -515,10 +577,9 @@ function FaqSection({ faqs, openFaq, setOpenFaq }) {
           <style>{`.address-block-desktop {} @media (max-width: 768px) { .address-block-desktop { display: none !important; } }`}</style>
           <div style={{ fontSize: 8, letterSpacing: 2, color: C.pink, textTransform: "uppercase", fontFamily: "'Montserrat', sans-serif", marginBottom: 6 }}>Find Us</div>
           <p style={{ fontSize: 12, color: C.mid, fontFamily: "'Montserrat', sans-serif", lineHeight: 1.7, margin: 0, fontWeight: 300 }}>
-            Shop No. 1, Ground Floor, Kh No. 409/2,<br />
-            Laxmi Vihar, Burari,<br />
-            Near Burari Govt. Hospital,<br />
-            Monday Market Road, Delhi-110084
+            NK Beauty Salon & Academy Shop No. 1,<br />
+            Ground Floor Khasra No. 409/2, <br />
+            Laxmi Vihar Burari, Delhi – 110084, India
           </p>
         </div>
       </div>

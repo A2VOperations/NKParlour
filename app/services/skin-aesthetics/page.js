@@ -476,10 +476,13 @@ function DermalRitualsSection({ rituals, portfolio }) {
   return (
     <>
       <section id="rituals" style={{ background: C.bg, padding: "80px 5vw" }}>
-        <div style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1.4fr", gap: "clamp(32px, 6vw, 80px)", alignItems: "start" }}>
+        <div style={{ maxWidth: 1100, margin: "0 auto", display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+            gap: "clamp(40px, 6vw, 100px)",
+            alignItems: "start", }}>
           <div style={{ position: "relative" }}>
-            <div style={{ borderRadius: "50% 50% 50% 50% / 60% 60% 40% 40%", overflow: "hidden", aspectRatio: "3/4", position: "relative", boxShadow: "0 24px 64px rgba(180,60,100,0.12)" }}>
-              <Image src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&q=80" alt="Pure Radiance" fill style={{ objectFit: "cover" }} />
+            <div style={{ borderRadius: "50% 50% 50% 50% / 60% 60% 40% 40%", overflow: "hidden", aspectRatio: "3/4", minHeight: 280, position: "relative", boxShadow: "0 24px 64px rgba(180,60,100,0.12)" }}>
+            <Image src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&q=80" alt="Pure Radiance" fill style={{ objectFit: "cover" }} />
             </div>
             <div style={{
               position: "absolute", bottom: 32, left: 20, right: 20,
@@ -583,7 +586,7 @@ function DermalRitualsSection({ rituals, portfolio }) {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 28 }}>
             {portfolio.map((item) => (
               <div key={item.id} style={{ borderRadius: 16, overflow: "hidden", background: C.surface, boxShadow: "0 4px 24px rgba(180,60,100,0.07)", border: `1px solid ${C.border}` }}>
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 2, height: 200 }}>
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "clamp(32px, 6vw, 80px)", alignItems: "start"}}>
                   {[item.before, item.after].map((src, idx) => (
                     <div key={idx} style={{ position: "relative", overflow: "hidden" }}>
                       <Image src={src} alt={idx === 0 ? "Before" : "After"} fill style={{ objectFit: "cover", filter: idx === 0 ? "grayscale(100%) brightness(0.9)" : "none" }} />
@@ -771,12 +774,28 @@ function SkinConciergeSection({ faqs }) {
 
   return (
     <section style={{ background: C.bgAlt, padding: "80px 5vw" }}>
-      <div style={{
-        maxWidth: 1100, margin: "0 auto",
-        display: "grid", gridTemplateColumns: "1fr 1.5fr",
-        gap: "clamp(40px, 6vw, 100px)", alignItems: "start",
-      }}>
-        <div style={{ position: "sticky", top: 40 }}>
+      <style>{`
+        .concierge-grid {
+          display: grid;
+          grid-template-columns: 1fr 1.5fr;
+          gap: clamp(40px, 6vw, 100px);
+          align-items: start;
+        }
+        @media (max-width: 640px) {
+          .concierge-grid {
+            grid-template-columns: 1fr;
+            gap: 36px;
+          }
+          .concierge-left {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-align: left;
+          }
+        }
+      `}</style>
+      <div style={{ maxWidth: 1100, margin: "0 auto" }} className="concierge-grid">
+        <div className="concierge-left">
           <div style={{ fontSize: 9, letterSpacing: 3, color: C.accent, textTransform: "uppercase", marginBottom: 14, fontFamily: "'Montserrat', sans-serif", display: "flex", alignItems: "center", gap: 10 }}>
             <span style={{ width: 18, height: 18, borderRadius: "50%", border: `1.5px solid ${C.accent}`, display: "inline-flex", alignItems: "center", justifyContent: "center", fontSize: 9 }}>?</span>
             Common Queries
