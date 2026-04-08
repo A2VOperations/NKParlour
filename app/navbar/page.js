@@ -21,6 +21,13 @@ export default function NavBar() {
   const rafRef                    = useRef(null);
   const pathname                  = usePathname();
 
+  const [isHoverable, setIsHoverable] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(hover: hover)");
+    setIsHoverable(mediaQuery.matches);
+  }, []);
+
   /* ── scroll effect ── */
   const handleScroll = useCallback(() => {
     if (rafRef.current) return;
@@ -88,7 +95,17 @@ export default function NavBar() {
                 {link.hasDropdown ? (
   // 👉 SERVICES (no routing)
                 <button
-                  onClick={() => setDropOpen((prev) => !prev)}
+                  onClick={() => {
+                    if (!isHoverable) {
+                      setDropOpen((prev) => !prev);
+                    }
+                  }}
+                  onMouseEnter={() => {
+                    if (isHoverable) setDropOpen(true);
+                  }}
+                  onMouseLeave={() => {
+                    if (isHoverable) setDropOpen(false);
+                  }}
                   className={`relative flex items-center gap-1 text-xs font-semibold tracking-widest pb-1 ${
                     isActive
                       ? "text-[#b8952a]"
@@ -114,11 +131,18 @@ export default function NavBar() {
                 {/* Desktop dropdown */}
                 {link.hasDropdown && (
                   <div
-                    className="absolute top-full left-0 mt-3 w-44 bg-white border border-gray-100
-                      shadow-xl rounded-md z-50
-                      opacity-0 invisible translate-y-2
-                      group-hover:opacity-100 group-hover:visible group-hover:translate-y-0
-                      transition-all duration-200"
+                    onMouseEnter={() => {
+                      if (isHoverable) setDropOpen(true);
+                    }}
+                    onMouseLeave={() => {
+                      if (isHoverable) setDropOpen(false);
+                    }}
+                    className={`absolute top-full left-0 mt-3 w-44 bg-white border border-gray-100
+                      shadow-xl rounded-md z-50 transition-all duration-200
+                      ${dropOpen 
+                        ? "opacity-100 visible translate-y-0" 
+                        : "opacity-0 invisible translate-y-2"}
+                    `}
                   >
                     {/* Arrow tip */}
                     <div className="absolute -top-1.5 left-5 w-3 h-3 bg-white border-l border-t border-gray-100 rotate-45" />
