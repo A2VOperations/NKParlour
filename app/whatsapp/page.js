@@ -14,7 +14,7 @@ export default function WhatsAppBtn() {
   }, []);
   return(
     <a
-          href="https://wa.me/91817899943"
+          href="https://wa.me/8178999143"
           target="_blank"
           rel="noopener noreferrer"
           className={`fixed bottom-3.5 z-[9999] bg-green-500 hover:bg-green-600 text-white p-2.5 rounded-full shadow-lg transition-all duration-300 hover:scale-110
