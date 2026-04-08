@@ -13,7 +13,7 @@ export default function TopBar() {
 
           {/* Phone */}
           <a
-            href="tel:+918178999943"
+            href="tel:+918178999143"
             className="flex items-center gap-2 font-medium hover:text-pink-600 transition-all duration-300 group"
           >
             <span className="w-6 h-6 flex items-center justify-center rounded-full 
@@ -30,7 +30,7 @@ export default function TopBar() {
 
             </span>
 
-            <span className="tracking-wide">+91 8178999943</span>
+            <span className="tracking-wide">+91 8178999143</span>
           </a>
 
           {/* Divider */}
