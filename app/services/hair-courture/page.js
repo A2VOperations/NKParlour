@@ -303,7 +303,7 @@ export default function ServiceHero() {
             <div className="flex flex-wrap items-center gap-8 mt-12">
               {/* Primary */}
               <Link
-                href="https://wa.me/918789999343?text=Hi%20NK%20Parlour%2C%20I%20want%20to%20book%20an%20appointment"
+                href="https://wa.me/91878999343?text=Hi%20NK%20Parlour%2C%20I%20want%20to%20book%20an%20appointment"
                 target="_black"
                 className="relative overflow-hidden 
             bg-gradient-to-r from-[#e1a140] via-[#f5c76d] to-[#e1a140]

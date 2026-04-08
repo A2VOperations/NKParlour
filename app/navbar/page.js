@@ -80,7 +80,7 @@ export default function NavBar() {
           href="/"
           className="text-xl sm:text-2xl font-light tracking-widest text-gray-800"
         >
-          NK <span className="text-[#b8952a] font-bold">PARLOUR</span>
+          NK <span className="text-[#b8952a] font-bold">BEAUTY</span>
         </Link>
 
         {/* ── DESKTOP NAV ── */}
@@ -93,8 +93,8 @@ export default function NavBar() {
             return (
               <div key={link.label} className="relative group">
                 {link.hasDropdown ? (
-  // 👉 SERVICES (no routing)
-                <button
+                  // 👉 SERVICES (no routing)
+                <button 
                   onClick={() => {
                     if (!isHoverable) {
                       setDropOpen((prev) => !prev);
@@ -106,13 +106,30 @@ export default function NavBar() {
                   onMouseLeave={() => {
                     if (isHoverable) setDropOpen(false);
                   }}
-                  className={`relative flex items-center gap-1 text-xs font-semibold tracking-widest pb-1 ${
+                  className={`relative flex items-center gap-1 text-xs font-semibold tracking-widest pb-1 group ${
                     isActive
                       ? "text-[#b8952a]"
                       : "text-gray-700 hover:text-[#b8952a]"
-                  }`}
-                >
+                  }`}>
                   {link.label}
+
+                  {/* 🔻 Arrow */}
+                  <svg
+                    className={`w-3 h-3 ml-1 transition-transform duration-200 ${
+                      dropOpen ? "rotate-180 text-[#b8952a]" : ""
+                    }`}
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={2.5}
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg>
+
+                  {/* underline */}
+                  <span className={`absolute left-0 -bottom-0.5 h-[1.5px] bg-[#b8952a] transition-all 
+                    duration-300 ${isActive ? "w-full" : "w-0 group-hover:w-full"}`} >
+                  </span>
                 </button>
               ) : (
                 // 👉 NORMAL LINKS (HOME, ABOUT, etc.)
@@ -125,6 +142,10 @@ export default function NavBar() {
                   }`}
                 >
                   {link.label}
+                  {/* underline */}
+                  <span className={`absolute left-0 -bottom-0.5 h-[1.5px] bg-[#b8952a] transition-all 
+                    duration-300 ${isActive ? "w-full" : "w-0 group-hover:w-full"}`} >
+                  </span>
                 </Link>
               )}
 
@@ -169,7 +190,7 @@ export default function NavBar() {
         {/* ── DESKTOP CTA ── */}
         <div className="hidden lg:block">
           <Link
-            href="https://wa.me/918789999343?text=Hi%20NK%20Parlour%2C%20I%20want%20to%20book%20an%20appointment"
+            href="https://wa.me/91878999343?text=Hi%20NK%20Parlour%2C%20I%20want%20to%20book%20an%20appointment"
             target="_blank"
             className="relative overflow-hidden border border-[#b8952a] text-[#b8952a]
               text-xs font-bold tracking-widest px-6 py-3 inline-block group
