@@ -198,10 +198,10 @@ export default function Footer() {
               </a>
 
               <a
-                href="tel:+918178999443"
+                href="tel:+918178999143"
                 className="block mt-4 text-lg font-semibold text-white hover:text-[#d4af37] transition"
               >
-                +91 81789 99443
+                +91 81789 99143
               </a>
 
               <p className="mt-1 text-xs text-gray-500 tracking-widest">
