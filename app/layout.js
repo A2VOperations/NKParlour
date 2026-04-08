@@ -4,7 +4,30 @@ import NavBar from "./navbar/page";
 import Footer from "./footer/page";
 
 export const viewport = {
-  themeColor: "#ffffff", // optional but good
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#ffffff",
+};
+
+export const metadata = {
+  authors: [{ name: "NK Beauty Salon & Academy" }],
+  robots: {
+    index: true,
+    follow: true,
+  },
+  icons: {
+    icon: "/favicon.png",
+    apple: "/apple-touch-icon.png",
+  },
+  openGraph: {
+    type: "website",
+    siteName: "NK Beauty Salon & Academy",
+    images: [
+      {
+        url: "https://nk-parlour.vercel.app/og-image.jpg",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({ children }) {
