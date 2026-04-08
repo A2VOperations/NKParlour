@@ -1,0 +1,330 @@
+/* portfolio.module.css */
+
+.page {
+  --bg:      #fdf0f4;
+  --gold:    #b8952a;
+  --gold-dim: rgba(184, 149, 42, 0.22);
+  --white:   #1a0a10;
+  --card-bg: #f5d6e2;
+  --radius:  12px;
+  background: linear-gradient(135deg, #fff5f8 0%, #ffeef4 25%, #fde8f0 25%, #fff5f8 50%);
+  color: var(--white);
+  font-family: 'Montserrat', sans-serif;
+  min-height: 100vh;
+}
+
+/* ─── LAYOUT ─── */
+.section {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 52px 24px;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid rgba(201, 168, 76, 0.12);
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+/* ─── MOTION HEADER ─── */
+.motionHeader {
+  border-left: 3px solid var(--gold);
+  padding-left: 18px;
+  margin-bottom: 32px;
+}
+.sectionLabel {
+  display: block;
+  font-size: 9px;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+.sectionTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 44px;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1;
+}
+
+/* ─── STILLS HEADER ─── */
+.stillsHeader {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+.stillsTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 34px;
+  font-weight: 400;
+  color: var(--white);
+  white-space: nowrap;
+  line-height: 1;
+}
+.accent {
+  font-style: italic;
+  color: var(--gold);
+}
+.titleLine {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(201,168,76,0.5), transparent);
+}
+
+/* ─── VIDEO GRID ─── */
+.videoGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.videoCard {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--card-bg);
+  cursor: pointer;
+  aspect-ratio: 3 / 4;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.videoCard:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 18px 52px rgba(201,168,76,0.18);
+}
+.videoPoster {
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.videoCard:hover .videoPoster { transform: scale(1.04); }
+.videoEl {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.playBtn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(201,168,76,0.18);
+  border: 1.5px solid var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.28s ease, background 0.28s ease;
+  backdrop-filter: blur(6px);
+  z-index: 2;
+  cursor: pointer;
+}
+.videoCard:hover .playBtn { opacity: 1; }
+.playing .playBtn { opacity: 1; }
+.cardFooter {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 40px 14px 14px;
+  background: linear-gradient(to top, rgba(12,4,4,0.94) 55%, transparent);
+  z-index: 1;
+}
+.cardCategory {
+  display: block;
+  font-size: 16px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 5px;
+}
+.cardTitle {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 24px;
+  color: white;
+  font-weight: 400;
+}
+
+/* ══════════════════════════════════════════════
+   STILLS GRID — exact masonry matching screenshot
+
+   Layout (3 cols × 3 rows):
+   Col:  1        2        3
+   R1: [a1]    [a2 ↕]   [a3]
+   R2: [b1]    [a2 ↕]   [b3]
+   R3:  —      [c2]     [c3]
+
+   Left col: a1(R1), b1(R2) — no R3
+   Center col: a2 spans R1+R2, c2 at R3
+   Right col: a3(R1), b3(R2), c3(R3)
+══════════════════════════════════════════════ */
+.stillsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 240px 240px 260px;
+  gap: 14px;
+  grid-template-areas:
+    "a1  a2  a3"
+    "b1  a2  b3"
+    ".   c2  c3";
+}
+
+/* grid area assignments */
+.a1 { grid-area: a1; }
+.a2 { grid-area: a2; }
+.a3 { grid-area: a3; }
+.b1 { grid-area: b1; }
+.b2 { grid-area: b2; }
+.b3 { grid-area: b3; }
+.c2 { grid-area: c2; }
+.c3 { grid-area: c3; }
+
+/* ─── STILL CARD ─── */
+.stillCard {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  cursor: pointer;
+  background: var(--card-bg);
+  transition: box-shadow 0.3s ease;
+}
+.stillCard:hover {
+  box-shadow: 0 0 0 2px rgba(201,168,76,0.35);
+}
+
+/* Image: grayscale by default, colour on click */
+.stillImg {
+  object-fit: cover;
+  filter: grayscale(100%) brightness(0.82);
+  transition: filter 0.55s cubic-bezier(0.4,0,0.2,1), transform 0.55s cubic-bezier(0.4,0,0.2,1);
+}
+.stillImg.coloured {
+  filter: grayscale(0%) brightness(1);
+  transform: scale(1.04);
+}
+
+/* Overlay — hidden by default, shown when coloured */
+.stillOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(10,4,4,0.93) 0%,
+    rgba(10,4,4,0.35) 50%,
+    transparent 100%
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 16px 14px;
+  pointer-events: none;
+}
+.overlayVisible {
+  opacity: 1;
+}
+
+.stillTag {
+  display: block;
+  font-size: 8px;
+  letter-spacing: 2.2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 4px;
+  transform: translateY(8px);
+  transition: transform 0.38s ease 0.05s;
+}
+.stillName {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 24px;
+  color: white;
+  margin-bottom: 5px;
+  transform: translateY(8px);
+  transition: transform 0.38s ease 0.1s;
+}
+.stillDesc {
+  font-size: 10px;
+  line-height: 1.65;
+  color: rgba(245,237,224,0.72);
+  transform: translateY(8px);
+  transition: transform 0.38s ease 0.15s;
+}
+.overlayVisible .stillTag,
+.overlayVisible .stillName,
+.overlayVisible .stillDesc {
+  transform: translateY(0);
+}
+
+
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 680px) {
+  .videoGrid { grid-template-columns: repeat(2, 1fr); }
+
+  .stillsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 200px 200px 200px 200px;
+    gap: 10px;
+    grid-template-areas:
+      "a1 a2"
+      "a3 a2"
+      "b1 b3"
+      "c2 c3";
+  }
+
+  .sectionTitle  { font-size: 32px; }
+  .stillsTitle   { font-size: 26px; }
+}
+
+@media (max-width: 420px) {
+  .videoGrid { grid-template-columns: 1fr; }
+
+  .stillsGrid {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(7, 220px);
+    gap: 10px;
+    grid-template-areas:
+      "a1"
+      "a2"
+      "a3"
+      "b1"
+      "b3"
+      "c2"
+      "c3";
+  }
+}
+/* FIX 1: ensure layering works */
+.videoPoster {
+  position: absolute;   /* 👈 ADD THIS */
+  inset: 0;             /* 👈 ADD THIS */
+  object-fit: cover;
+  z-index: 2;           /* 👈 poster on top initially */
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* FIX 2: video below poster */
+.videoEl {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;           /* 👈 behind poster */
+}
+
+/* FIX 3: when playing → hide poster */
+.playing .videoPoster {
+  opacity: 0;
+  pointer-events: none;
+}
+.videoCard {
+  position: relative;
+}
