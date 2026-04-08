@@ -72,19 +72,7 @@ export default function TopBar() {
             <FaInstagram className="w-3 h-3" />
           </a>
 
-          {/* Facebook (same look, no link) */}
-          <a
-            href="https://wa.me/918178999943?text=Hi%20NK%20Parlour%2C%20I%20want%20to%20book%20an%20appointment"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-6 h-6 flex items-center justify-center rounded-full
-              bg-gradient-to-tr from-green-400 via-green-500 to-green-600
-              text-white shadow-sm
-              hover:scale-110 hover:shadow-green-400/40
-              transition-all duration-300"
-          >
-            <FaWhatsapp className="w-3 h-3" />
-          </a>
+          
 
         </div>
       </div>
