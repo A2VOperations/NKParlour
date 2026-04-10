@@ -2,6 +2,8 @@ import "./globals.css";
 import TopBar from "./topbar/page";
 import NavBar from "./navbar/page";
 import Footer from "./footer/page";
+import { WiHail } from "react-icons/wi";
+import WhatsAppBtn from "./whatsapp/page";
 
 export const viewport = {
   width: "device-width",
@@ -30,6 +32,8 @@ export const metadata = {
   },
 };
 
+
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
@@ -40,6 +44,7 @@ export default function RootLayout({ children }) {
         <TopBar />
         <NavBar />
         {children}
+        <WhatsAppBtn/>
         <Footer />
       </body>
     </html>

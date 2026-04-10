@@ -190,7 +190,7 @@ export default function NavBar() {
         {/* ── DESKTOP CTA ── */}
         <div className="hidden lg:block">
           <Link
-            href="https://wa.me/91878999343?text=Hi%20NK%20Parlour%2C%20I%20want%20to%20book%20an%20appointment"
+            href="https://wa.me/91878999143?text=Hi%20NK%20Parlour%2C%20I%20want%20to%20book%20an%20appointment"
             target="_blank"
             className="relative overflow-hidden border border-[#b8952a] text-[#b8952a]
               text-xs font-bold tracking-widest px-6 py-3 inline-block group
@@ -308,7 +308,8 @@ export default function NavBar() {
 
           {/* Mobile CTA */}
           <Link
-            href="/book"
+  href="https://wa.me/91878999143?text=Hi%20NK%20Parlour%2C%20I%20want%20to%20book%20an%20appointment"
+  target="_blank"
             onClick={() => setMenuOpen(false)}
             className="mt-5 flex items-center justify-center border border-[#b8952a]
               text-[#b8952a] text-xs font-bold tracking-widest py-3 px-6

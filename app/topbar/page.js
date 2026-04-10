@@ -13,7 +13,7 @@ export default function TopBar() {
 
           {/* Phone */}
           <a
-            href="tel:+918178999943"
+            href="tel:+918178999143"
             className="flex items-center gap-2 font-medium hover:text-pink-600 transition-all duration-300 group"
           >
             <span className="w-6 h-6 flex items-center justify-center rounded-full 
@@ -30,7 +30,7 @@ export default function TopBar() {
 
             </span>
 
-            <span className="tracking-wide">+91 8178999943</span>
+            <span className="tracking-wide">+91 8178999143</span>
           </a>
 
           {/* Divider */}
@@ -72,19 +72,7 @@ export default function TopBar() {
             <FaInstagram className="w-3 h-3" />
           </a>
 
-          {/* Facebook (same look, no link) */}
-          <a
-            href="https://wa.me/918178999943?text=Hi%20NK%20Parlour%2C%20I%20want%20to%20book%20an%20appointment"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-6 h-6 flex items-center justify-center rounded-full
-              bg-gradient-to-tr from-green-400 via-green-500 to-green-600
-              text-white shadow-sm
-              hover:scale-110 hover:shadow-green-400/40
-              transition-all duration-300"
-          >
-            <FaWhatsapp className="w-3 h-3" />
-          </a>
+          
 
         </div>
       </div>
