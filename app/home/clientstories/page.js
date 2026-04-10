@@ -72,6 +72,7 @@ export default function ClientStories() {
   const animRef = useRef(null);
   const posRef = useRef(0);
   const pausedRef = useRef(false);
+  const hoveringRef = useRef(false);
   const speedRef = useRef(0.7); // px per frame
 
   // Total width of one full set
@@ -138,7 +139,25 @@ export default function ClientStories() {
   };
   const onMouseUp = () => {
     dragRef.current.dragging = false;
-    setTimeout(() => { pausedRef.current = false; }, 800);
+    if (hoveringRef.current) {
+      pausedRef.current = true;
+      return;
+    }
+
+    setTimeout(() => {
+      if (!hoveringRef.current && !dragRef.current.dragging) {
+        pausedRef.current = false;
+      }
+    }, 800);
+  };
+  const onMouseEnter = () => {
+    hoveringRef.current = true;
+    pausedRef.current = true;
+  };
+  const onMouseLeave = () => {
+    hoveringRef.current = false;
+    dragRef.current.dragging = false;
+    pausedRef.current = false;
   };
 
   return (
@@ -194,11 +213,8 @@ export default function ClientStories() {
         onMouseDown={onMouseDown}
         onMouseMove={onMouseMove}
         onMouseUp={onMouseUp}
-        onMouseLeave={onMouseUp}
-        onMouseEnter={() => { pausedRef.current = true; }}
-        onMouseOut={() => {
-          if (!dragRef.current.dragging) pausedRef.current = false;
-        }}
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
       >
         {/* Edge fades */}
         <div
@@ -254,7 +270,7 @@ function TestimonialCard({ t }) {
           fontStyle: "italic",
         }}
       >
-        "{t.quote}"
+        &quot;{t.quote}&quot;
       </p>
 
       {/* Avatar + name */}

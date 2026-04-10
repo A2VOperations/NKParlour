@@ -1,6 +1,6 @@
 "use client";
 
-import { FaInstagram, FaWhatsapp  } from "react-icons/fa";
+import { FaInstagram, FaWhatsapp } from "react-icons/fa";
 
 export default function TopBar() {
   return (
@@ -56,9 +56,7 @@ export default function TopBar() {
         </div>
 
         {/* ── Right: Social ── */}
-        <div className="flex items-center gap-3">
-
-          {/* Instagram */}
+        {/* <div className="flex items-center gap-3">
           <a
             href="https://www.instagram.com/nk_beautysalon_academy/"
             target="_blank"
@@ -71,10 +69,8 @@ export default function TopBar() {
           >
             <FaInstagram className="w-3 h-3" />
           </a>
+        </div> */}
 
-          
-
-        </div>
       </div>
     </div>
   );

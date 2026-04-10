@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { CiShare1 } from "react-icons/ci";
+
 
 const MAPS_EMBED_URL =
   "https://www.google.com/maps?q=NK+Beauty+Salon+and+Academy+Gate+No+2+25+Foot+Road+Burari+Delhi+110084&output=embed";
@@ -27,9 +29,9 @@ export default function VisitSanctuary() {
   };
 
   const handleSubmit = (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  const message = `Hi NK Parlour,
+    const message = `Hi NK Parlour,
 
   I would like to connect with you:
 
@@ -121,26 +123,31 @@ export default function VisitSanctuary() {
               style={{ borderTop: "1px solid #ede0d8", divideColor: "#ede0d8" }}
             >
               {/* Location */}
-              <div className="flex-1 px-5 py-4">
+              <div className="flex-1 px-5 py-4 flex flex-col">
                 <p
-                  className="text-[9px] font-bold tracking-[0.2em] uppercase mb-1 flex items-center gap-1"
-                  style={{ color: "#c8974a" }}
+                  className="text-[12px] font-bold tracking-[0.2em] uppercase mb-1 flex items-center gap-1 text-[#c8974a]"
+
                 >
                   <span>📍</span> Location
                 </p>
-                <p className="text-[12px] leading-[1.6]" style={{ color: "#4a3a3a" }}>
-                  Gate No. 2, 25 Foot Road, Bazar,<br/>
-                  Wali Gali, Near Govt. Hospital,<br/>
-                  Laxmi Vihar, Burari,<br/>
+                <p href="https://www.google.com/maps/search/?api=1&query=NK+Beauty+Salon+and+Academy+Shop+No.+1+Ground+Floor+Khasra+No.+409/2+Laxmi+Vihar+Burari+Delhi+110084"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[12px] leading-[1.6] text-[#4a3a3a] transition">
+                  Gate No. 2, 25 Foot Road, Bazar,<br />
+                  Wali Gali, Near Govt. Hospital,<br />
+                  Laxmi Vihar, Burari,<br />
                   Delhi - 110084
                 </p>
+                <a href="https://www.google.com/maps/search/?api=1&query=NK+Beauty+Salon+and+Academy+Shop+No.+1+Ground+Floor+Khasra+No.+409/2+Laxmi+Vihar+Burari+Delhi+110084" target="_blank" rel="noopener noreferrer" className="hover:text-[#d4af38] border-solid border-2 border-[#c8974a] rounded-full p-1 mt-3 inline-flex items-center justify-center transition">
+                  <button><CiShare1 /></button>
+                </a>
               </div>
 
               {/* Hours */}
               <div className="flex-1 px-5 py-4">
                 <p
-                  className="text-[9px] font-bold tracking-[0.2em] uppercase mb-1 flex items-center gap-1"
-                  style={{ color: "#c8974a" }}
+                  className="text-[12px] font-bold tracking-[0.2em] uppercase mb-1 flex items-center gap-1 text-[#c8974a]"
                 >
                   <span>🕐</span> Hours
                 </p>

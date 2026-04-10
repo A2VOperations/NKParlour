@@ -76,8 +76,10 @@ export default function VisualPortfolio() {
             }}
           >
             Our{" "}
-            <span className="italic" style={{ color: "#2b1a1a" }}>
-              Visual Portfolio
+            <span style={{ color: "#2b1a1a" }}>
+              Visual  <span className="italic" style={{ color: "#d63f6e" }}>
+                Portfolio
+              </span>
             </span>
           </h2>
           {/* Gold underline */}
@@ -149,24 +151,24 @@ export default function VisualPortfolio() {
                 @nk_beautysalon_academy
               </p>
             </div>
-        </a>
-              
-            
-            
-          
+          </a>
+
+
+
+
 
           {/* Visit full gallery CTA */}
           <Link
-          href="/gallery"
-          className="flex items-center gap-3 px-7 py-3 text-[11px] font-bold tracking-[0.22em] uppercase text-white transition-all duration-300 hover:opacity-90"
-          style={{
-            background: "#2b1a1a",
-            borderRadius: "999px",
-          }}
-        >
-          Visit Full Gallery
-          <span>→</span>
-        </Link>
+            href="/gallery"
+            className="flex items-center gap-3 px-7 py-3 text-[11px] font-bold tracking-[0.22em] uppercase text-white transition-all duration-300 hover:opacity-90"
+            style={{
+              background: "#2b1a1a",
+              borderRadius: "999px",
+            }}
+          >
+            Visit Full Gallery
+            <span>→</span>
+          </Link>
         </div>
 
       </div>
@@ -185,54 +187,54 @@ function PortfolioCard({ item }) {
 
   return (
     <Link href={href}>
-    
-    <div
-      className="group relative overflow-hidden cursor-pointer"
-      style={{ borderRadius: "16px", height: "260px" }}
-    >
-      {/* Image */}
-      <Image
-        src={item.image}
-        alt={item.title}
-        fill
-        className="object-cover object-center transition-transform duration-[1200ms] ease-out group-hover:scale-[1.06]"
-        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-      />
 
-      {/* Dark gradient */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+      <div
+        className="group relative overflow-hidden cursor-pointer"
+        style={{ borderRadius: "16px", height: "260px" }}
+      >
+        {/* Image */}
+        <Image
+          src={item.image}
+          alt={item.title}
+          fill
+          className="object-cover object-center transition-transform duration-[1200ms] ease-out group-hover:scale-[1.06]"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+        />
 
-      {/* Category tag — top left (only on some cards as in design) */}
-      {item.tag && (
-        <div
-          className="absolute top-4 left-4 px-3 py-[4px] text-[8px] font-bold tracking-[0.2em] uppercase text-white"
-          style={{
-            background: "rgba(255,255,255,0.18)",
-            backdropFilter: "blur(8px)",
-            border: "1px solid rgba(255,255,255,0.25)",
-            borderRadius: "999px",
-          }}
-        >
-          {item.tag}
+        {/* Dark gradient */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+
+        {/* Category tag — top left (only on some cards as in design) */}
+        {item.tag && (
+          <div
+            className="absolute top-4 left-4 px-3 py-[4px] text-[8px] font-bold tracking-[0.2em] uppercase text-white"
+            style={{
+              background: "rgba(255,255,255,0.18)",
+              backdropFilter: "blur(8px)",
+              border: "1px solid rgba(255,255,255,0.25)",
+              borderRadius: "999px",
+            }}
+          >
+            {item.tag}
+          </div>
+        )}
+
+        {/* Title + View Detail */}
+        <div className="absolute bottom-4 left-4 right-4">
+          <p
+            className="text-white font-serif text-[17px] leading-tight mb-2"
+            style={{ fontFamily: "'Playfair Display', serif" }}
+          >
+            {item.title}
+          </p>
+          <p
+            className="flex items-center gap-1 text-[9px] font-semibold tracking-[0.22em] uppercase"
+            style={{ color: "rgba(255,255,255,0.7)" }}
+          >
+            View Detail <span>→</span>
+          </p>
         </div>
-      )}
-
-      {/* Title + View Detail */}
-      <div className="absolute bottom-4 left-4 right-4">
-        <p
-          className="text-white font-serif text-[17px] leading-tight mb-2"
-          style={{ fontFamily: "'Playfair Display', serif" }}
-        >
-          {item.title}
-        </p>
-        <p
-          className="flex items-center gap-1 text-[9px] font-semibold tracking-[0.22em] uppercase"
-          style={{ color: "rgba(255,255,255,0.7)" }}
-        >
-          View Detail <span>→</span>
-        </p>
       </div>
-    </div>
     </Link>
   );
 }
