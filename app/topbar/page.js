@@ -17,7 +17,7 @@ export default function TopBar() {
             className="flex items-center gap-2 font-medium hover:text-pink-600 transition-all duration-300 group"
           >
             <span className="w-6 h-6 flex items-center justify-center rounded-full 
-              bg-gradient-to-tr from-[#b8952a] to-pink-400 text-white shadow-sm group-hover:scale-110 transition">
+              bg-pink-600 text-white shadow-sm group-hover:scale-110 transition">
 
               {/* FIXED ICON */}
               <svg
@@ -39,7 +39,7 @@ export default function TopBar() {
           {/* Hours */}
           <div className="hidden sm:flex items-center gap-2 text-gray-600 font-medium">
             <span className="w-6 h-6 flex items-center justify-center rounded-full 
-              bg-gradient-to-tr from-[#b8952a] to-pink-400 text-white shadow-sm">
+               bg-pink-600 text-white shadow-sm">
 
               {/* CLOCK ICON FIXED */}
               <svg
